@@ -48,8 +48,10 @@ namespace GOLStartUp
                     scatchPad[x, y] = checkGameLifeRules(x, y, count);
                 }
             }
-            
-            universe = scatchPad;
+
+            universe = scatchPad.Clone() as bool[,];
+
+
 
 
             // Increment generation count
@@ -130,6 +132,7 @@ namespace GOLStartUp
 
                 // Tell Windows you need to repaint
                 graphicsPanel1.Invalidate();
+                // Console.WriteLine("block cliced");
             }
         }
 
@@ -175,6 +178,7 @@ namespace GOLStartUp
                     if (universe[xCheck, yCheck] == true) count++;
                 }
             }
+            Console.WriteLine("x " + x + ", y " + y + ", count " + count);
             return count;
         }
 
@@ -185,9 +189,13 @@ namespace GOLStartUp
             //Living cells with less than 2 living neighbors die in the next generation.
             //Living cells with 2 or 3 living neighbors live in the next generation.
             //Living cells with more than 3 living neighbors die in the next generation.
+            //if (x == 0 && y == 2) 
+            //{
+            //    Console.WriteLine(neighbors);
+            //}
             if (universe[x, y] == true)
             { 
-                if (neighbors >= 2 && neighbors <= 3)
+                if (neighbors == 2 || neighbors == 3)
                 {
                     value = true;
                 }
