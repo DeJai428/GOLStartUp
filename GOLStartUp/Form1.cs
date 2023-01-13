@@ -132,7 +132,6 @@ namespace GOLStartUp
 
                 // Tell Windows you need to repaint
                 graphicsPanel1.Invalidate();
-                // Console.WriteLine("block cliced");
             }
         }
 
@@ -178,7 +177,6 @@ namespace GOLStartUp
                     if (universe[xCheck, yCheck] == true) count++;
                 }
             }
-            Console.WriteLine("x " + x + ", y " + y + ", count " + count);
             return count;
         }
 
@@ -237,21 +235,16 @@ namespace GOLStartUp
 
         }
 
-        
-
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
             //generations = 0;
             resetUniverse();
         }
 
-
         private void playToolStriButton_Click(object sender, EventArgs e)
         {
             timer.Enabled = true;
         }
-
-        
 
         private void pauseToolStripButton_Click(object sender, EventArgs e)
         {
